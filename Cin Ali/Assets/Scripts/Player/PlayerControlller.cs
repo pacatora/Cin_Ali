@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class PlayerControlller : MonoBehaviour
 {
     [SerializeField]
-    private AudioClip jumpclip;
+    //------
+    // ışınla bizi spock
+    private AudioClip jump;
     public float jumpForce=12f,rightForce=0f;
     private Rigidbody2D myRigidbody;
     private bool canJump;
