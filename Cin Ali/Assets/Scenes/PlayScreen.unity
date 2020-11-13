@@ -353,6 +353,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!4 &427107066 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8773425095506981318, guid: 4df6db7c614b7394f8233a9801d0dcba,
+    type: 3}
+  m_PrefabInstance: {fileID: 1347456563266373994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &450793335
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,9 +935,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560213a38b9c42e49bd0f0a7714d20ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpclip: {fileID: 0}
+  jump: {fileID: 0}
   jumpForce: 8
   rightForce: 0
+  feetTransform: {fileID: 427107066}
 --- !u!114 &1228364722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,7 +1316,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 560213a38b9c42e49bd0f0a7714d20ea, type: 3}
+      - m_Target: {fileID: 0}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
@@ -1319,7 +1326,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1447887587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1691,6 +1698,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8773425095506981318, guid: 4df6db7c614b7394f8233a9801d0dcba,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4df6db7c614b7394f8233a9801d0dcba, type: 3}
 --- !u!1001 &2971012401874241558
@@ -1708,7 +1720,7 @@ PrefabInstance:
     - target: {fileID: 2971012402381661256, guid: d54ada9c23640834dbcbf2a0af84695c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.51
+      value: -3.831
       objectReference: {fileID: 0}
     - target: {fileID: 2971012402381661256, guid: d54ada9c23640834dbcbf2a0af84695c,
         type: 3}
@@ -1758,7 +1770,7 @@ PrefabInstance:
     - target: {fileID: 2971012402381661256, guid: d54ada9c23640834dbcbf2a0af84695c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3.5308053
+      value: 2.8875945
       objectReference: {fileID: 0}
     - target: {fileID: 2971012402381661256, guid: d54ada9c23640834dbcbf2a0af84695c,
         type: 3}

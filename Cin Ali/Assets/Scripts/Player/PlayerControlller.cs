@@ -14,8 +14,18 @@ public class PlayerControlller : MonoBehaviour
     private bool canJump;
     private Button JumpBtn;
     AudioSource ses;
+    [SerializeField] private Transform feetTransform;
     
-    
+    bool isGrounded(){
+
+        RaycastHit2D rayHit = Physics2D.Raycast(feetTransform.position, Vector2.down);
+        if(Vector2.Distance(new Vector2(feetTransform.position.x, feetTransform.position.y), rayHit.point) <= 0f){
+            return true;
+        }
+        
+        else
+            return false;
+    }
     
 
         void  Awake() {
@@ -26,8 +36,9 @@ public class PlayerControlller : MonoBehaviour
              
         }
         public void Jump(){
-            if(canJump){
-                canJump=false;
+            if(isGrounded()){
+                
+                ses.Play();
                 if(transform.position.x<0){
                     rightForce=0f;
                                         
@@ -48,13 +59,6 @@ public class PlayerControlller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Mathf.Abs(myRigidbody.velocity.y)==0){
-         canJump=true; 
-         
-         ses.Play(); 
-         
-        }
-        
         
     }
 }
