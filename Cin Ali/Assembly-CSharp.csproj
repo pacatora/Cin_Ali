@@ -40,7 +40,6 @@
      <Compile Include="Assets\Scripts\Background\BackgroundScale.cs" />
      <Compile Include="Assets\Scripts\Engeller\Engeller.cs" />
      <Compile Include="Assets\Scripts\Engeller\Engelmatik.cs" />
-     <Compile Include="Assets\Scripts\Engeller\Engelyokik.cs" />
      <Compile Include="Assets\Scripts\GamePlay.cs" />
      <Compile Include="Assets\Scripts\MenuControl.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
