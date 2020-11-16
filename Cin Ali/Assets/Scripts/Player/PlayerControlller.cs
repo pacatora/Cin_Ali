@@ -7,12 +7,15 @@ public class PlayerControlller : MonoBehaviour
 {
     [SerializeField] private AudioClip jump;
     [SerializeField] private GameObject pauseScreen;
-    public float jumpForce = 12f, rightForce = 0f;
+    public float jumpForce = 4f, rightForce = 0f;
     private Rigidbody2D myRigidbody;
     private bool canJump;
     private Button JumpBtn;
     AudioSource ses;
     [SerializeField] private Transform feetTransform;
+
+    private float jumpTimeCounter;
+    public float jumpTime;
 
     bool isGrounded()
     {
@@ -25,39 +28,17 @@ public class PlayerControlller : MonoBehaviour
 
         else
             return false;
-    }
 
+    }
 
     void Awake()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        JumpBtn = GameObject.Find("Jump Button").GetComponent<Button>();
-        JumpBtn.onClick.AddListener(() => Jump());
         ses = GetComponent<AudioSource>();
-
-    }
-    public void Jump()
-    {
-        if (isGrounded())
-        {
-            ses.Play();
-            if (transform.position.x < 0)
-            {
-                rightForce = 0f;
-
-            }
-            else
-            {
-                rightForce = 0;
-            }
-
-            myRigidbody.velocity = new Vector2(rightForce, jumpForce);
-        }
     }
 
     void Start()
     {
-
 
     }
 
@@ -65,6 +46,32 @@ public class PlayerControlller : MonoBehaviour
     void Update()
     {
 
+        if (isGrounded() && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)))
+        {
+            ses.Play();
+            jumpTimeCounter = jumpTime;
+            myRigidbody.velocity = new Vector2(1f, jumpForce);
+        }
+
+        else if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0))
+        {
+            if (jumpTimeCounter > 0)
+            {
+                myRigidbody.velocity = new Vector2(1f, jumpForce);
+                jumpTimeCounter -= Time.deltaTime;
+            }
+
+        }
+
+        else
+        {
+            ses.Stop();
+            myRigidbody.velocity = new Vector2(1f, myRigidbody.velocity.y);
+            jumpTimeCounter = 0f;
+        }
+
+
+        Camera.main.transform.position = new Vector3(transform.position.x + 3f, 0f, transform.position.z - 15f);
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
