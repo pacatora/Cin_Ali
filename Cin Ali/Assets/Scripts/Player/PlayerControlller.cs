@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerControlller : MonoBehaviour
 {
     [SerializeField] private AudioClip jump;
-    [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject endGameScreen, yolText;
     public float jumpForce = 4f, rightForce = 0f;
     private Rigidbody2D myRigidbody;
     private bool canJump;
@@ -77,7 +77,8 @@ public class PlayerControlller : MonoBehaviour
     {
         if (collision.collider.tag == "Obstacle")
         {
-            pauseScreen.SetActive(true);
+            endGameScreen.SetActive(true);
+            endGameScreen.transform.GetChild(2).GetComponent<Text>().text += yolText.GetComponent<Text>().text;
             Time.timeScale = 0f;
         }
     }
