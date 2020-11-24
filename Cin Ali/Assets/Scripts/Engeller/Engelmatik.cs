@@ -4,26 +4,67 @@ using UnityEngine;
 
 public class Engelmatik : MonoBehaviour
 {
-    [SerializeField] GameObject player;
-    [SerializeField] private GameObject[] obstacles;
-    [SerializeField] private GameObject block;
-
+    [SerializeField]
+    private GameObject[] engeller;
+    private List<GameObject>EngellerListesi=new List<GameObject>();
+    void Awake(){
+        EngelleriOlustur();
+    }
     void Start()
     {
-        StartCoroutine(CreateRandomObstacle());
+        StartCoroutine(RasgeleEngelOlustur());
+        
     }
+    public void EngelleriOlustur(){
+        int sayi=0;
+        Vector3 lokasyon = new Vector3(transform.position.x,transform.position.y,-2);
+        for (int i=0; i<engeller.Length*3; i++){
+            GameObject obje= Instantiate(engeller[sayi],lokasyon,Quaternion.identity) as GameObject;
+            EngellerListesi.Add(obje);
+            EngellerListesi[i].SetActive(false);
+            sayi++;
+            if(sayi==engeller.Length){
+                sayi=0;
+            }
+        
+        }
+    }
+            public void Karistir(){
+                for (int i=0; i<EngellerListesi.Count; i++){
+                    GameObject temp=EngellerListesi[i];
+                    int rasgele=Random.Range(i,EngellerListesi.Count);
+                    EngellerListesi[i]=EngellerListesi[rasgele];
+                    EngellerListesi[rasgele]=temp;
+                }  
 
+                }
+
+                IEnumerator RasgeleEngelOlustur(){
+                    yield return new WaitForSeconds(Random.Range(3.5f,6.5f));
+                    int sayi = Random.Range(0,EngellerListesi.Count);
+
+                    while(true){
+                        if(!EngellerListesi[sayi].activeInHierarchy){
+                            EngellerListesi[sayi].SetActive(true);
+                            EngellerListesi[sayi].transform.position=new Vector3(transform.position.x,transform.position.y,-2);
+                            break;
+                        }
+                        else {
+                            sayi=Random.Range(0,EngellerListesi.Count);
+                        }
+                    }
+
+                        StartCoroutine(RasgeleEngelOlustur());
+
+            }
+
+            
+
+            
+
+    
     void Update()
     {
-        block.transform.position = new Vector3(player.transform.position.x - 2f, player.transform.position.y);
+        
     }
-
-    private IEnumerator CreateRandomObstacle()
-    {
-        yield return new WaitForSeconds(Random.Range(0.8f, 2f));
-        Instantiate(obstacles[Random.Range(0, obstacles.Length)], new Vector3(player.transform.position.x + 7f, -2.1f), Quaternion.identity, transform);
-
-        StartCoroutine(CreateRandomObstacle());
-    }
-
 }

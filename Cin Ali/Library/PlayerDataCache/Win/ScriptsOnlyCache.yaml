@@ -5,9 +5,9 @@ ScriptsOnlyBuild:
     - BackgroundScale
     - Engeller
     - Engelmatik
+    - Engelyokik
     - GamePlay
     - MenuControl
-    - Parallax
     - PlayerAnimation
     - PlayerControlller
     Unity.2D.Animation.Editor.dll:
@@ -20,6 +20,12 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -63,25 +69,25 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11264}
+      Script: {instanceID: 11252}
     - Class: 114
-      Script: {instanceID: 11552}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 12280}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12460}
+      Script: {instanceID: 12448}
     - Class: 114
-      Script: {instanceID: 12988}
+      Script: {instanceID: 12974}
     - Class: 114
-      Script: {instanceID: 13106}
+      Script: {instanceID: 13092}
     - Class: 114
-      Script: {instanceID: 13398}
+      Script: {instanceID: 13382}
     - Class: 114
-      Script: {instanceID: 13756}
+      Script: {instanceID: 13740}
     - Class: 114
-      Script: {instanceID: 14368}
+      Script: {instanceID: 14350}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -107,7 +113,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 21
       Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
     - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
@@ -130,31 +142,35 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11264}
+      Script: {instanceID: 11252}
     - Class: 114
-      Script: {instanceID: 11552}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11606}
+      Script: {instanceID: 11596}
     - Class: 114
-      Script: {instanceID: 11682}
+      Script: {instanceID: 11672}
     - Class: 114
-      Script: {instanceID: 11708}
+      Script: {instanceID: 11698}
     - Class: 114
-      Script: {instanceID: 11996}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12034}
+      Script: {instanceID: 12022}
     - Class: 114
-      Script: {instanceID: 12280}
+      Script: {instanceID: 12266}
     - Class: 114
-      Script: {instanceID: 12568}
+      Script: {instanceID: 12364}
     - Class: 114
-      Script: {instanceID: 12828}
+      Script: {instanceID: 12448}
     - Class: 114
-      Script: {instanceID: 12988}
+      Script: {instanceID: 12556}
     - Class: 114
-      Script: {instanceID: 13756}
+      Script: {instanceID: 12974}
     - Class: 114
-      Script: {instanceID: 14368}
+      Script: {instanceID: 13092}
+    - Class: 114
+      Script: {instanceID: 13740}
+    - Class: 114
+      Script: {instanceID: 14350}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -286,7 +302,7 @@ ScriptsOnlyBuild:
     className: GridLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: dda3a234e41982cdd7a9da9279e7c7fa
+      Hash: 8ab9c0190fe76a099667927a6b075753
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Engelmatik
@@ -346,7 +362,7 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: ef5c43f921427d03730f6ea4c848f07d
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RectMask2D
@@ -364,7 +380,7 @@ ScriptsOnlyBuild:
     className: PixelPerfectCamera
   - hash:
       serializedVersion: 2
-      Hash: 856955208c7b6ab81e79415c10f1bd61
+      Hash: 437a918840b3168be264c32045227c0f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerControlller
@@ -439,6 +455,12 @@ ScriptsOnlyBuild:
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
+    className: Engelyokik
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
     className: BackgroundScale
   - hash:
       serializedVersion: 2
@@ -470,12 +492,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
-  - hash:
-      serializedVersion: 2
-      Hash: 93732d3a3da98547d903542d2bfef736
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Parallax
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -604,7 +620,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 8e6ceabfd38a184413d69b7db56c89cc
+      Hash: 88cc9df3c6fc697bfbeacd24c0d6f2d7
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
@@ -670,7 +686,7 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
-      Hash: 9726bc46e15d44429bd38fb013657f1e
+      Hash: 4ef0f7d42cdb13479386e1f049c315aa
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner
     className: PlaymodeTestsController
@@ -720,4 +736,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MenuScreen.unity
   - Assets/Scenes/PlayScreen.unity
-  playerPath: C:/Users/Abdulkadir/Desktop/RunRunRun/Cin Ali Kosuyor.exe
+  playerPath: C:/Users/rabia/Cin Ali Kosuyor/28.10.2020i/Cin Ali Kosuyor.exe
